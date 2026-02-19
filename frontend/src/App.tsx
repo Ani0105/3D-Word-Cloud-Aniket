@@ -23,8 +23,8 @@ const SAMPLE_URLS = [
     url: "https://apnews.com/hub/climate-and-environment",
   },
   {
-    label: "Reuters World",
-    url: "https://www.reuters.com/world/",
+    label: "NPR World",
+    url: "https://www.npr.org/sections/world/",
   },
 ];
 
@@ -89,7 +89,14 @@ export default function App() {
             placeholder="https://example.com/news/article"
           />
           <button onClick={analyze} disabled={isLoading}>
-            {isLoading ? "Analyzing..." : "Analyze"}
+            {isLoading ? (
+              <>
+                <span className="spinner" />
+                Analyzing...
+              </>
+            ) : (
+              "Analyze"
+            )}
           </button>
         </div>
         <div className="samples">
